@@ -1,0 +1,29 @@
+<Configuration Product="ProPlus">
+
+	<Display Level="none" CompletionNotice="no" SuppressModal="yes" AcceptEula="yes" />
+	
+	<!-- <PIDKEY Value="TT6XF-2VNKV-7BK2W-W9C8M-3GKKK" /> -->
+	
+	<Logging Type="standard" Path="%temp%" Template="Microsoft Office Professional Plus Setup(*).txt" />
+
+	<!-- <USERNAME Value="Customer" /> -->
+	
+	<COMPANYNAME Value="SAP" />
+	
+	<INSTALLLOCATION Value="<%= @volume %>:\Microsoft Office" /> 
+	
+	<!-- <LIS CACHEACTION="CacheOnly" /> -->
+	
+	<!-- <LIS SOURCELIST="\\server1\share\Office;\\server2\share\Office" /> -->
+	
+	<!-- <DistributionPoint Location="\\server\share\Office" /> -->
+	
+	<!-- <OptionState Id="OptionID" State="absent" Children="force" /> -->
+	
+	<Setting Id="AUTO_ACTIVATE" Value="1" />
+	
+	<Setting Id="SETUP_REBOOT" Value="Never" />
+	
+	<!-- <Command Path="%windir%\system32\msiexec.exe" Args="/i \\server\share\my.msi" QuietArg="/q" ChainPosition="after" Execute="install" /> -->
+
+</Configuration>
