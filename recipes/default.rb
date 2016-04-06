@@ -22,7 +22,7 @@ node['msoffice']['version'].each do |version|
 end
 
 Chef::Log.info("#########################################################################################")
-Chef::Log.info("###            Dear user, this is a new Cookbook, for Office 2013 and above,          ###")
-Chef::Log.info("###       If you wish to install Office of under of this version, please use in       ###")
+Chef::Log.info("###                                                                                   ###")
+Chef::Log.info("###                                                                                   ###")
 Chef::Log.info("###                                                                                   ###")
 Chef::Log.info("#########################################################################################")
