@@ -8,7 +8,7 @@
 #
 
 extracted_dir = 'OFFICE2013_X86'
-src = "http://my_ftp/Office/#{extracted_dir}.zip"
+src = "#{node['msoffice']['source']}\\#{extracted_dir}.zip"
 Chef::Log.info("#### The src is: #{src} #####")
 
 ver = '15.0.4569.1506'
