@@ -5,7 +5,7 @@
 default['msoffice']['version'] = ['OFFICE2013_X64']
 
 #Source installation required for msoffice.
-#The default value is: "#{ENV['HOME']}\\Download"
+#The default value is: "#{ENV['HOME']}\\Downloads"
 default['msoffice']['source'] = "#{ENV['HOME']}\\Downloads"
 
 #[ADVANCED]

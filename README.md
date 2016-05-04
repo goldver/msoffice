@@ -24,7 +24,7 @@ Attributes
 | --- | ---- | ----------- | ------- |
 | ['msoffice']['version'] | Array | application version | ['OFFICE2013_X64'] |
 | ['msoffice']['volume'] | String | application destination volume | nil |
-| ['msoffice']['source'] | String | application source | "#{ENV['HOME']}\\Download" |
+| ['msoffice']['source'] | String | application source | "#{ENV['HOME']}\\Downloads" |
 
 __Please note:__The attributes which have no default are handled within the cookbook's default recipe depending on the specified versions.
 <br />Current supported versions:
