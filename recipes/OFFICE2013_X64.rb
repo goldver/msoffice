@@ -8,30 +8,17 @@
 #
 
 extracted_dir = 'OFFICE2013_X64'
-src = "#{node['msoffice']['source']}\\#{extracted_dir}.zip"
+src = node['msoffice']['source']
 Chef::Log.info("#### The src is: #{src} #####")
 
 ver = '15.0.4569.1506'
 name = 'Microsoft Office Professional Plus 2013'
-
-# Detect installation by version and if it exists doesn't download .zip
-$product_version = ''
-main_exe = ((node['msoffice']['volume'] == nil) ? "C:\\Program Files" : "#{node['msoffice']['volume']}:") + "\\Microsoft Office\\Office15\\FIRSTRUN.EXE"
-
-if ::File.exists?(main_exe)
-    detect_version 'Product version' do 
-		path main_exe
-		attribute 'ProductVersion'
-		return_var "$Product_version"
-    end
-end
 
 # Downloads package
 windows_zipfile "#{Chef::Config[:file_cache_path]}\\#{extracted_dir}" do
 	source src
 	action :unzip
 	overwrite true
-	not_if {$Product_version == "#{ver}"}	
 end
 
 # Creates template for config.xml file
@@ -51,6 +38,7 @@ windows_package name do
 	installer_type :custom
 	source "#{Chef::Config[:file_cache_path]}\\#{extracted_dir}\\setup.exe"
 	options "/config #{Chef::Config[:file_cache_path]}#{config_path}\\config.xml"
+	timeout 14000
 end
 
 # Delete config.xml file
@@ -59,7 +47,7 @@ file "#{Chef::Config[:file_cache_path]}\\config.xml" do
 end
 
 # Delete downloaded zip file
-file "#{Chef::Config[:file_cache_path]}\\#{File.basename(src)}" do
+file "#{Chef::Config[:file_cache_path]}\\#{extracted_dir}.zip" do
 	action :delete
 end
 

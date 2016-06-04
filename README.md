@@ -16,7 +16,7 @@ Supported platforms here:
 
 Requirements
 ------------
-This cookbook includes and supports 'windows' and 'autosetup' cookbooks
+This cookbook includes and supports 'windows' cookbook
 
 Attributes
 ----------
@@ -24,7 +24,7 @@ Attributes
 | --- | ---- | ----------- | ------- |
 | ['msoffice']['version'] | Array | application version | ['OFFICE2013_X64'] |
 | ['msoffice']['volume'] | String | application destination volume | nil |
-| ['msoffice']['source'] | String | application source | "#{ENV['HOME']}\\Downloads" |
+| ['msoffice']['source'] | String | application source | "#{ENV['HOME']}\\Download\\Setup\\OFFICE2013_X64.zip" |
 
 __Please note:__The attributes which have no default are handled within the cookbook's default recipe depending on the specified versions.
 <br />Current supported versions:
@@ -47,11 +47,11 @@ Just include `msoffice` in your node's `run_list`:
 	}
 ```
 
-If you wish to install Microsoft Office from any source, for example:"#{ENV['HOME']}\\Download":
+If you wish to install Microsoft Office from any source, for example from web:
 
 	{
 	  "msoffice": {
-	    "source": "#{ENV['HOME']}\\Download"
+	    "source": "https://www.dropbox.com/s/xgo5ol82wtbh4pa/OFFICE2013_X64.zip?dl=1"
 	  }    
 	}
 	
